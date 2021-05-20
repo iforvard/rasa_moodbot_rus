@@ -1,0 +1,50 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - hello
+
+responses:
+  utter_greet:
+  - text: "Хей! Как ты?"
+    buttons:
+    - title: "Хорошо"
+      payload: "/mood_great"
+    - title: "Очень грустно"
+      payload: "/mood_unhappy"
+
+  utter_cheer_up:
+  - text: "Вот что вас подбодрит:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Вам это помогло?"
+
+  utter_happy:
+  - text: "Отлично, продолжай!"
+
+  utter_goodbye:
+  - text: "Пока"
+
+  utter_iamabot:
+  - text: "Я бот, работающий на Rasa."
+
+  utter_hello:
+    - text: "Как у тебя дела?"
+      buttons:
+        - title: "Хорошо"
+          payload: "/mood_great"
+        - title: "Очень грустно"
+          payload: "/mood_unhappy"
+  utter_deny:
+    - text: "Очень жаль, я старался :)"
+
+session_config:
+  session_expiration_time: 60  # value in minutes
+  carry_over_slots_to_new_session: true

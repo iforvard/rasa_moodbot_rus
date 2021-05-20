@@ -1,0 +1,17 @@
+language: ru
+
+pipeline:
+  - name: "SpacyNLP"
+    model: "ru_core_news_lg"
+  - name: "SpacyTokenizer"
+  - name: "SpacyFeaturizer"
+  - name: "DIETClassifier"
+    entity_recognition: False
+    epochs: 50
+
+policies:
+  - name: TEDPolicy
+    max_history: 2
+    epochs: 100
+  - name: MemoizationPolicy
+  - name: RulePolicy
